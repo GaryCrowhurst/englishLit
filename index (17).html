@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Lit Paper 1 – Naomi's Revision Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary-color: #ec4899;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-bottom: 2rem;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+        }
+
+        header h1 {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: var(--card-bg);
+            box-shadow: var(--shadow);
+            z-index: 100;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 0.5rem;
+            gap: 0.5rem;
+        }
+
+        nav button {
+            flex: 1;
+            min-width: 120px;
+            padding: 0.75rem 1rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        nav button:hover,
+        nav button:focus {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+            scroll-margin-top: 80px;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            font-size: 1.35rem;
+            margin: 1.5rem 0 1rem;
+            color: var(--primary-dark);
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .strategy-list {
+            list-style: none;
+            counter-reset: strategy;
+        }
+
+        .strategy-list li {
+            counter-increment: strategy;
+            padding: 1rem;
+            margin: 0.75rem 0;
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            position: relative;
+            padding-left: 3.5rem;
+        }
+
+        .strategy-list li::before {
+            content: counter(strategy);
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary-color);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .collapsible {
+            background: var(--warning-color);
+            color: white;
+            cursor: pointer;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            text-align: left;
+            width: 100%;
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .collapsible:hover,
+        .collapsible:focus {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: #fff7ed;
+            border-radius: 0 0 8px 8px;
+            margin-top: -8px;
+        }
+
+        .collapsible-content.active {
+            max-height: 500px;
+            padding: 1rem;
+            border: 2px solid var(--warning-color);
+            border-top: none;
+        }
+
+        .flashcards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .flashcard {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            min-height: 150px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .flashcard:hover,
+        .flashcard:focus {
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .flashcard.flipped {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border-color: var(--primary-color);
+        }
+
+        .flashcard-front {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            text-align: center;
+        }
+
+        .flashcard-back {
+            display: none;
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        .flashcard.flipped .flashcard-front {
+            display: none;
+        }
+
+        .flashcard.flipped .flashcard-back {
+            display: block;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 0.75rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 0.75rem 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-height: 48px;
+        }
+
+        button:hover,
+        button:focus {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        button.secondary {
+            background: var(--text-muted);
+        }
+
+        button.secondary:hover,
+        button.secondary:focus {
+            background: var(--text-color);
+        }
+
+        button.success {
+            background: var(--success-color);
+        }
+
+        button.danger {
+            background: var(--danger-color);
+        }
+
+        .example-paragraph {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border-left: 4px solid var(--warning-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 200px;
+            padding: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            line-height: 1.6;
+            resize: vertical;
+            margin: 1rem 0;
+            transition: border-color 0.3s ease;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .practice-note {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+
+        .quiz-container {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1rem 0;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .quiz-question {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--primary-dark);
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .quiz-option {
+            padding: 1rem;
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            font-size: 1rem;
+        }
+
+        .quiz-option:hover,
+        .quiz-option:focus {
+            border-color: var(--primary-color);
+            background: #f8fafc;
+            transform: translateX(4px);
+        }
+
+        .quiz-feedback {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .quiz-feedback.correct {
+            background: #d1fae5;
+            color: #065f46;
+            border: 2px solid var(--success-color);
+        }
+
+        .quiz-feedback.incorrect {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 2px solid var(--danger-color);
+        }
+
+        .score-display {
+            background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist li {
+            padding: 1rem;
+            margin: 0.75rem 0;
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .checklist li:hover {
+            transform: translateX(4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .checklist input[type="checkbox"] {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            accent-color: var(--success-color);
+        }
+
+        .checklist label {
+            cursor: pointer;
+            flex: 1;
+            font-size: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 640px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            nav button {
+                min-width: calc(50% - 0.5rem);
+            }
+
+            .flashcards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 768px) {
+            main {
+                padding: 2rem;
+            }
+
+            header h1 {
+                font-size: 2.25rem;
+            }
+
+            header p {
+                font-size: 1.15rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>English Lit Paper 1 – Naomi's Revision Hub</h1>
+        <p>Romeo & Juliet • A Christmas Carol</p>
+    </header>
+
+    <nav role="navigation" aria-label="Main navigation">
+        <button onclick="scrollToSection('home')">Home</button>
+        <button onclick="scrollToSection('romeo')">Romeo & Juliet</button>
+        <button onclick="scrollToSection('carol')">A Christmas Carol</button>
+        <button onclick="scrollToSection('practice')">Practice & Quiz</button>
+    </nav>
+
+    <main>
+        <!-- HOME SECTION -->
+        <section id="home">
+            <h2>Welcome, Naomi!</h2>
+            <div class="card">
+                <p style="font-size: 1.1rem; line-height: 1.8;">
+                    These are your last-minute notes for <strong>English Literature Paper 1</strong>. 
+                    Focus on key quotes, the PEEZ structure, and practice questions. You've got this! 💪
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>3-Step Exam Strategy</h3>
+                <ol class="strategy-list">
+                    <li>Always answer the question in every paragraph ("Shakespeare shows… Dickens shows…").</li>
+                    <li>Use one strong quote per paragraph, not loads.</li>
+                    <li>If you forget a quote, describe the moment or paraphrase it – examiners still give marks.</li>
+                </ol>
+            </div>
+
+            <button class="collapsible" onclick="toggleCollapsible(this)" aria-expanded="false">
+                😰 Feeling nervous? Click here!
+            </button>
+            <div class="collapsible-content">
+                <h4 style="margin-bottom: 0.75rem; color: var(--primary-dark);">Quick Confidence Tips:</h4>
+                <ul style="list-style-position: inside; line-height: 2;">
+                    <li><strong>Breathe deeply</strong> – Take three slow breaths before you start.</li>
+                    <li><strong>Plan quickly</strong> – Spend 5 minutes planning your answer structure.</li>
+                    <li><strong>Start with your best</strong> – Answer the question you feel most confident about first.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ROMEO & JULIET SECTION -->
+        <section id="romeo">
+            <h2>Romeo & Juliet</h2>
+
+            <div class="card">
+                <h3>Key Quotes (Interactive Flashcards)</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1rem;">
+                    Tap any card to reveal its meaning. Use these quotes in your essays!
+                </p>
+                
+                <div class="button-group">
+                    <button onclick="showAllFlashcards('romeo')" class="success">Show All Meanings</button>
+                    <button onclick="hideAllFlashcards('romeo')" class="secondary">Hide All Meanings</button>
+                </div>
+
+                <div class="flashcards" id="romeo-flashcards">
+                    <div class="flashcard" onclick="flipCard(this)" tabindex="0" role="button" aria-label="Flashcard">
+                        <div class="flashcard-front">"O brawling love, O loving hate"</div>
+                        <div class="flashcard-back">
+                            <strong>Theme:</strong> Conflict, emotions, youth<br>
+                            This oxymoron shows Romeo's confusion about love and the intense emotions of young people.
+                        </div>
+                    </div>
+
+                    <div class="flashcard" onclick="flipCard(this)" tabindex="0" role="button" aria-label="Flashcard">
+                        <div class="flashcard-front">"I defy you, stars!"</div>
+                        <div class="flashcard-back">
+                            <strong>Theme:</strong> Fate, destiny, tragedy<br>
+                            Romeo challenges fate itself, showing his desperation and the inevitability of his tragic end.
+                        </div>
+                    </div>
+
+                    <div class="flashcard" onclick="flipCard(this)" tabindex="0" role="button" aria-label="Flashcard">
+                        <div class="flashcard-front">"My only love sprung from my only hate."</div>
+                        <div class="flashcard-back">
+                            <strong>Theme:</strong> Forbidden love, family conflict<br>
+                            Juliet realizes the cruel irony that she loves her family's enemy. Shows the power of love vs. duty.
+                        </div>
+                    </div>
+
+                    <div class="flashcard" onclick="flipCard(this)" tabindex="0" role="button" aria-label="Flashcard">
+                        <div class="flashcard-front">"O happy dagger!"</div>
+                        <div class="flashcard-back">
+                            <strong>Theme:</strong> Tragedy, desperation, death<br>
+                            Juliet's final words before suicide. The oxymoron "happy dagger" shows her desperation and tragic fate.
+                        </div>
+                    </div>
+
+                    <div class="flashcard" onclick="flipCard(this)" tabindex="0" role="button" aria-label="Flashcard">
+                        <div class="flashcard-front">"A plague o' both your houses!"</div>
+                        <div class="flashcard-back">
+                            <strong>Theme:</strong> Feud consequences, blame<br>
+                            Mercutio's dying curse on both families. Shows the devastating consequences of their hatred.
+                        </div>
+                    </div>
+
+                    <div class="flashcard" onclick="flipCard(this)" tabindex="0" role="button" aria-label="Flashcard">
+                        <div class="flashcard-front">"Ancient grudge"</div>
+                        <div class="flashcard-back">
+                            <strong>Theme:</strong> Long-term family conflict, violence<br>
+                            From the Prologue. Shows the feud is old and deep-rooted, setting up the tragedy to come.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>PEEZ Structure</h3>
+                <div class="info-box">
+                    <p><strong>P</strong> – Make a clear <strong>Point</strong> that answers the question.</p>
+                    <p><strong>E</strong> – Use a short quote as <strong>Evidence</strong>.</p>
+                    <p><strong>E</strong> – <strong>Explain</strong> what the quote shows.</p>
+                    <p><strong>Z</strong> – <strong>Zoom</strong> in on one word or technique (noun, verb, metaphor, foreshadowing, etc.).</p>
+                </div>
+
+                <h4 style="margin-top: 1.5rem; color: var(--primary-dark);">Example Paragraph (Theme: Fate)</h4>
+                <div class="example-paragraph">
+                    Shakespeare presents fate as an unavoidable force controlling the lovers. Romeo declares, "I defy you, stars!", suggesting he believes destiny has trapped him. The noun "stars" symbolises fate as something powerful and distant, showing his desperation. This creates a tragic tone, as the audience knows he cannot escape what has been decided for him.
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Guided Practice</h3>
+                <p><strong>Prompt:</strong> Write a PEEZ paragraph about Romeo's emotions in Act 1. Try to use at least one quote from the cards above.</p>
+                <textarea id="romeo-practice" placeholder="Start writing your paragraph here..." aria-label="Romeo practice paragraph"></textarea>
+                <div class="button-group">
+                    <button onclick="saveParagraph('romeo')" class="success">Save My Paragraph</button>
+                    <button onclick="loadParagraph('romeo')" class="secondary">Load Saved Paragraph</button>
+                </div>
+                <p class="practice-note">💾 Your work is saved only on this device.</p>
+            </div>
+        </section>
+
+        <!-- A CHRISTMAS CAROL SECTION -->
+        <section id="carol">
+            <h2>A Christmas Carol</h2>
+
+            <div class="card">
+                <h3>Key Quotes (Interactive Flashcards)</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1rem;">
+                    Tap any card to reveal its meaning. Use these quotes in your essays!
+                </p>
+                
+                <div class="button-group">
+                    <button onclick="showAllFlashcards('carol')" class="success">Show All Meanings</button>
+                    <button onclick="hideAllFlashcards('carol')" class="secondary">Hide All Meanings</button>
+                </div>
+
+                <div class="flashcards" id="carol-flashcards">
+                    <div class="flashcard" onclick="flipCard(this)" tabindex="0" role="button" aria-label="Flashcard">
+                        <div class="flashcard-front">"Solitary as an oyster."</div>
+                        <div class="flashcard-back">
+                            <strong>Theme:</strong> Isolation, potential for change<br>
+                            Simile showing Scrooge is closed off, but hints at a "pearl" inside – potential for transformation.
+                        </div>
+                    </div>
+
+                    <div class="flashcard" onclick="flipCard(this)" tabindex="0" role="button" aria-label="Flashcard">
+                        <div class="flashcard-front">"Are there no prisons?"</div>
+                        <div class="flashcard-back">
+                            <strong>Theme:</strong> Selfishness, ignorance of the poor<br>
+                            Scrooge's cold response to charity collectors. Shows his lack of compassion for suffering.
+                        </div>
+                    </div>
+
+                    <div class="flashcard" onclick="flipCard(this)" tabindex="0" role="button" aria-label="Flashcard">
+                        <div class="flashcard-front">"I will honour Christmas in my heart."</div>
+                        <div class="flashcard-back">
+                            <strong>Theme:</strong> Transformation, redemption<br>
+                            Scrooge's promise after his transformation. Shows he has learned to value generosity and community.
+                        </div>
+                    </div>
+
+                    <div class="flashcard" onclick="flipCard(this)" tabindex="0" role="button" aria-label="Flashcard">
+                        <div class="flashcard-front">"Tiny Tim … hoped people saw him."</div>
+                        <div class="flashcard-back">
+                            <strong>Theme:</strong> Innocence, suffering, moral lesson<br>
+                            Despite his disability, Tim wants to remind people of Jesus who helped the lame walk. Shows innocence and moral purpose.
+                        </div>
+                    </div>
+
+                    <div class="flashcard" onclick="flipCard(this)" tabindex="0" role="button" aria-label="Flashcard">
+                        <div class="flashcard-front">"This boy is Ignorance. This girl is Want."</div>
+                        <div class="flashcard-back">
+                            <strong>Theme:</strong> Societal warning<br>
+                            The Ghost of Christmas Present reveals society's failures. Dickens warns of the dangers of ignoring poverty.
+                        </div>
+                    </div>
+
+                    <div class="flashcard" onclick="flipCard(this)" tabindex="0" role="button" aria-label="Flashcard">
+                        <div class="flashcard-front">"A merry Christmas to everybody!"</div>
+                        <div class="flashcard-back">
+                            <strong>Theme:</strong> Joy, community spirit<br>
+                            Scrooge's joyful greeting after transformation. Contrasts with his earlier coldness and shows genuine change.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Model Paragraph (Scrooge's Transformation)</h3>
+                <div class="example-paragraph">
+                    Dickens presents Scrooge's transformation as essential for personal and social redemption. Early in the novel, he is described as "solitary as an oyster", suggesting he is closed and hardened. The metaphor hints there is a 'pearl' inside him, foreshadowing his change. By the end, his joyful declaration, "I will honour Christmas in my heart", shows he has embraced generosity and compassion.
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Guided Practice</h3>
+                <p><strong>Prompt:</strong> Explain how Dickens uses the Cratchit family to criticise society. Try to use at least one of the key quotes.</p>
+                <textarea id="carol-practice" placeholder="Start writing your paragraph here..." aria-label="Carol practice paragraph"></textarea>
+                <div class="button-group">
+                    <button onclick="saveParagraph('carol')" class="success">Save My Paragraph</button>
+                    <button onclick="loadParagraph('carol')" class="secondary">Load Saved Paragraph</button>
+                </div>
+                <p class="practice-note">💾 Your work is saved only on this device.</p>
+            </div>
+        </section>
+
+        <!-- PRACTICE & QUIZ SECTION -->
+        <section id="practice">
+            <h2>Practice & Quiz</h2>
+
+            <div class="card">
+                <h3>Quote Recall Exercise</h3>
+                <p style="margin-bottom: 1rem;">Test your knowledge of key quotes!</p>
+                
+                <div class="button-group">
+                    <button onclick="startQuiz('romeo')">Test Romeo & Juliet Quotes</button>
+                    <button onclick="startQuiz('carol')">Test A Christmas Carol Quotes</button>
+                </div>
+
+                <div id="quiz-area" style="display: none;">
+                    <div class="score-display" id="score-display">
+                        Questions: <span id="total-questions">0</span> | Correct: <span id="correct-answers">0</span>
+                    </div>
+                    
+                    <div class="quiz-container">
+                        <div class="quiz-question" id="quiz-question"></div>
+                        <div class="quiz-options" id="quiz-options"></div>
+                        <div id="quiz-feedback" style="display: none;"></div>
+                        <button id="next-button" onclick="nextQuestion()" style="display: none; margin-top: 1rem;">Next Question</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Practice Checklist</h3>
+                <p style="margin-bottom: 1rem; color: var(--text-muted);">
+                    Tick off what you can do confidently. Your progress is saved!
+                </p>
+                
+                <ul class="checklist">
+                    <li>
+                        <input type="checkbox" id="check1" onchange="saveChecklistState()">
+                        <label for="check1">I can write a PEEZ paragraph on fate in Romeo & Juliet.</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check2" onchange="saveChecklistState()">
+                        <label for="check2">I can explain how family conflict is shown in Romeo & Juliet.</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check3" onchange="saveChecklistState()">
+                        <label for="check3">I can explain how Scrooge changes from start to end.</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check4" onchange="saveChecklistState()">
+                        <label for="check4">I can use at least 3 quotes confidently in an essay.</label>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        Good luck, Naomi! You've got this. 💪📚
+    </footer>
+
+    <script>
+        // Navigation
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Collapsible
+        function toggleCollapsible(button) {
+            const content = button.nextElementSibling;
+            const isExpanded = button.getAttribute('aria-expanded') === 'true';
+            
+            content.classList.toggle('active');
+            button.setAttribute('aria-expanded', !isExpanded);
+        }
+
+        // Flashcards
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
+
+        function showAllFlashcards(section) {
+            const flashcards = document.querySelectorAll(`#${section}-flashcards .flashcard`);
+            flashcards.forEach(card => card.classList.add('flipped'));
+        }
+
+        function hideAllFlashcards(section) {
+            const flashcards = document.querySelectorAll(`#${section}-flashcards .flashcard`);
+            flashcards.forEach(card => card.classList.remove('flipped'));
+        }
+
+        // Keyboard accessibility for flashcards
+        document.querySelectorAll('.flashcard').forEach(card => {
+            card.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    flipCard(this);
+                }
+            });
+        });
+
+        // Practice paragraphs with localStorage
+        function saveParagraph(section) {
+            const textarea = document.getElementById(`${section}-practice`);
+            const content = textarea.value;
+            
+            if (content.trim()) {
+                localStorage.setItem(`${section}-paragraph`, content);
+                alert('✅ Paragraph saved successfully!');
+            } else {
+                alert('⚠️ Please write something first!');
+            }
+        }
+
+        function loadParagraph(section) {
+            const textarea = document.getElementById(`${section}-practice`);
+            const saved = localStorage.getItem(`${section}-paragraph`);
+            
+            if (saved) {
+                textarea.value = saved;
+                alert('✅ Paragraph loaded!');
+            } else {
+                alert('⚠️ No saved paragraph found.');
+            }
+        }
+
+        // Quiz data
+        const quizData = {
+            romeo: [
+                {
+                    description: "A quote showing conflict and confused emotions in young love",
+                    correct: '"O brawling love, O loving hate"',
+                    options: [
+                        '"O brawling love, O loving hate"',
+                        '"I defy you, stars!"',
+                        '"My only love sprung from my only hate."',
+                        '"Ancient grudge"'
+                    ]
+                },
+                {
+                    description: "Romeo challenges destiny and fate",
+                    correct: '"I defy you, stars!"',
+                    options: [
+                        '"O happy dagger!"',
+                        '"I defy you, stars!"',
+                        '"A plague o\' both your houses!"',
+                        '"O brawling love, O loving hate"'
+                    ]
+                },
+                {
+                    description: "Juliet realizes she loves her family's enemy",
+                    correct: '"My only love sprung from my only hate."',
+                    options: [
+                        '"Ancient grudge"',
+                        '"O happy dagger!"',
+                        '"My only love sprung from my only hate."',
+                        '"I defy you, stars!"'
+                    ]
+                },
+                {
+                    description: "Juliet's tragic final words before death",
+                    correct: '"O happy dagger!"',
+                    options: [
+                        '"O happy dagger!"',
+                        '"A plague o\' both your houses!"',
+                        '"O brawling love, O loving hate"',
+                        '"Ancient grudge"'
+                    ]
+                },
+                {
+                    description: "Mercutio's dying curse on both families",
+                    correct: '"A plague o\' both your houses!"',
+                    options: [
+                        '"My only love sprung from my only hate."',
+                        '"I defy you, stars!"',
+                        '"A plague o\' both your houses!"',
+                        '"O happy dagger!"'
+                    ]
+                },
+                {
+                    description: "Shows the feud is old and deep-rooted",
+                    correct: '"Ancient grudge"',
+                    options: [
+                        '"Ancient grudge"',
+                        '"O brawling love, O loving hate"',
+                        '"My only love sprung from my only hate."',
+                        '"A plague o\' both your houses!"'
+                    ]
+                }
+            ],
+            carol: [
+                {
+                    description: "Shows Scrooge is isolated but has potential for change",
+                    correct: '"Solitary as an oyster."',
+                    options: [
+                        '"Solitary as an oyster."',
+                        '"Are there no prisons?"',
+                        '"I will honour Christmas in my heart."',
+                        '"A merry Christmas to everybody!"'
+                    ]
+                },
+                {
+                    description: "Scrooge's cold, selfish response to charity",
+                    correct: '"Are there no prisons?"',
+                    options: [
+                        '"This boy is Ignorance. This girl is Want."',
+                        '"Are there no prisons?"',
+                        '"Tiny Tim … hoped people saw him."',
+                        '"Solitary as an oyster."'
+                    ]
+                },
+                {
+                    description: "Scrooge's promise after his transformation",
+                    correct: '"I will honour Christmas in my heart."',
+                    options: [
+                        '"A merry Christmas to everybody!"',
+                        '"Solitary as an oyster."',
+                        '"I will honour Christmas in my heart."',
+                        '"Are there no prisons?"'
+                    ]
+                },
+                {
+                    description: "Shows Tiny Tim's innocence and moral purpose",
+                    correct: '"Tiny Tim … hoped people saw him."',
+                    options: [
+                        '"Tiny Tim … hoped people saw him."',
+                        '"This boy is Ignorance. This girl is Want."',
+                        '"I will honour Christmas in my heart."',
+                        '"Solitary as an oyster."'
+                    ]
+                },
+                {
+                    description: "Dickens warns society about ignoring poverty",
+                    correct: '"This boy is Ignorance. This girl is Want."',
+                    options: [
+                        '"Are there no prisons?"',
+                        '"A merry Christmas to everybody!"',
+                        '"This boy is Ignorance. This girl is Want."',
+                        '"Tiny Tim … hoped people saw him."'
+                    ]
+                },
+                {
+                    description: "Scrooge's joyful greeting showing his transformation",
+                    correct: '"A merry Christmas to everybody!"',
+                    options: [
+                        '"I will honour Christmas in my heart."',
+                        '"A merry Christmas to everybody!"',
+                        '"Solitary as an oyster."',
+                        '"Are there no prisons?"'
+                    ]
+                }
+            ]
+        };
+
+        let currentQuiz = null;
+        let currentQuestionIndex = 0;
+        let totalQuestions = 0;
+        let correctAnswers = 0;
+        let shuffledQuestions = [];
+
+        function startQuiz(type) {
+            currentQuiz = type;
+            currentQuestionIndex = 0;
+            totalQuestions = 0;
+            correctAnswers = 0;
+            
+            // Shuffle questions
+            shuffledQuestions = [...quizData[type]].sort(() => Math.random() - 0.5);
+            
+            // Show quiz area
+            document.getElementById('quiz-area').style.display = 'block';
+            updateScoreDisplay();
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const question = shuffledQuestions[currentQuestionIndex];
+            
+            // Update question text
+            document.getElementById('quiz-question').textContent = question.description;
+            
+            // Create option buttons
+            const optionsContainer = document.getElementById('quiz-options');
+            optionsContainer.innerHTML = '';
+            
+            // Shuffle options
+            const shuffledOptions = [...question.options].sort(() => Math.random() - 0.5);
+            
+            shuffledOptions.forEach(option => {
+                const button = document.createElement('button');
+                button.className = 'quiz-option';
+                button.textContent = option;
+                button.onclick = () => checkAnswer(option, question.correct);
+                optionsContainer.appendChild(button);
+            });
+            
+            // Hide feedback and next button
+            document.getElementById('quiz-feedback').style.display = 'none';
+            document.getElementById('next-button').style.display = 'none';
+        }
+
+        function checkAnswer(selected, correct) {
+            totalQuestions++;
+            
+            const feedbackDiv = document.getElementById('quiz-feedback');
+            const optionsContainer = document.getElementById('quiz-options');
+            
+            // Disable all option buttons
+            const buttons = optionsContainer.querySelectorAll('button');
+            buttons.forEach(btn => btn.disabled = true);
+            
+            if (selected === correct) {
+                correctAnswers++;
+                feedbackDiv.className = 'quiz-feedback correct';
+                feedbackDiv.textContent = '✅ Correct! Well done!';
+            } else {
+                feedbackDiv.className = 'quiz-feedback incorrect';
+                feedbackDiv.textContent = `❌ Nearly – the right quote was: ${correct}`;
+            }
+            
+            feedbackDiv.style.display = 'block';
+            document.getElementById('next-button').style.display = 'block';
+            updateScoreDisplay();
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            
+            if (currentQuestionIndex < shuffledQuestions.length) {
+                showQuestion();
+            } else {
+                // Quiz complete - reshuffle for next round
+                shuffledQuestions = [...quizData[currentQuiz]].sort(() => Math.random() - 0.5);
+                currentQuestionIndex = 0;
+                showQuestion();
+            }
+        }
+
+        function updateScoreDisplay() {
+            document.getElementById('total-questions').textContent = totalQuestions;
+            document.getElementById('correct-answers').textContent = correctAnswers;
+        }
+
+        // Checklist with localStorage
+        function saveChecklistState() {
+            const checklist = {
+                check1: document.getElementById('check1').checked,
+                check2: document.getElementById('check2').checked,
+                check3: document.getElementById('check3').checked,
+                check4: document.getElementById('check4').checked
+            };
+            localStorage.setItem('naomi-checklist', JSON.stringify(checklist));
+        }
+
+        function loadChecklistState() {
+            const saved = localStorage.getItem('naomi-checklist');
+            if (saved) {
+                const checklist = JSON.parse(saved);
+                document.getElementById('check1').checked = checklist.check1 || false;
+                document.getElementById('check2').checked = checklist.check2 || false;
+                document.getElementById('check3').checked = checklist.check3 || false;
+                document.getElementById('check4').checked = checklist.check4 || false;
+            }
+        }
+
+        // Load checklist state on page load
+        window.addEventListener('DOMContentLoaded', loadChecklistState);
+    </script>
+</body>
+</html>
