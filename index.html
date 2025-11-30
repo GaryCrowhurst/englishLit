@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,19 +13,19 @@
         }
 
         :root {
-            --primary-color: #6366f1;
-            --primary-dark: #4f46e5;
-            --secondary-color: #ec4899;
-            --success-color: #10b981;
-            --warning-color: #f59e0b;
-            --danger-color: #ef4444;
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --text-color: #1e293b;
-            --text-muted: #64748b;
-            --border-color: #e2e8f0;
-            --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --primary-color: #007AFF;
+            --primary-dark: #0051D5;
+            --secondary-color: #5856D6;
+            --success-color: #34C759;
+            --warning-color: #FF9500;
+            --danger-color: #FF3B30;
+            --bg-color: #F2F2F7;
+            --card-bg: #FFFFFF;
+            --text-color: #000000;
+            --text-muted: #8E8E93;
+            --border-color: #D1D1D6;
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.12);
         }
 
         html {
@@ -41,7 +42,7 @@
         }
 
         header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(135deg, #007AFF, #5856D6);
             color: white;
             padding: 2rem 1rem;
             text-align: center;
@@ -127,7 +128,7 @@
         }
 
         .info-box {
-            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            background: linear-gradient(135deg, #E5F3FF, #D6EDFF);
             border-left: 4px solid var(--primary-color);
             padding: 1rem;
             border-radius: 8px;
@@ -203,6 +204,7 @@
             padding: 1rem;
             border: 2px solid var(--warning-color);
             border-top: none;
+            background: #FFF8E6;
         }
 
         .flashcards {
@@ -234,7 +236,7 @@
         }
 
         .flashcard.flipped {
-            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            background: linear-gradient(135deg, #E5F3FF, #D6EDFF);
             border-color: var(--primary-color);
         }
 
@@ -306,7 +308,7 @@
         }
 
         .example-paragraph {
-            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            background: linear-gradient(135deg, #FFF8E6, #FFEDCC);
             border-left: 4px solid var(--warning-color);
             padding: 1.5rem;
             border-radius: 8px;
@@ -373,13 +375,21 @@
             transition: all 0.3s ease;
             text-align: left;
             font-size: 1rem;
+            color: var(--text-color);
+            font-weight: 500;
         }
 
         .quiz-option:hover,
         .quiz-option:focus {
             border-color: var(--primary-color);
-            background: #f8fafc;
+            background: var(--primary-color);
+            color: white;
             transform: translateX(4px);
+        }
+
+        .quiz-option:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
         }
 
         .quiz-feedback {
@@ -390,19 +400,19 @@
         }
 
         .quiz-feedback.correct {
-            background: #d1fae5;
-            color: #065f46;
+            background: #D1F4E0;
+            color: #0A5F2E;
             border: 2px solid var(--success-color);
         }
 
         .quiz-feedback.incorrect {
-            background: #fee2e2;
-            color: #991b1b;
+            background: #FFE5E5;
+            color: #B71C1C;
             border: 2px solid var(--danger-color);
         }
 
         .score-display {
-            background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+            background: linear-gradient(135deg, #E9E8FF, #D9D7FF);
             padding: 1rem;
             border-radius: 8px;
             margin: 1rem 0;
@@ -486,6 +496,243 @@
                 font-size: 2rem;
             }
         }
+
+        /* New Activity Styles */
+        .dropdown-match-container {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1rem 0;
+            border: 2px solid var(--border-color);
+        }
+
+        .match-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: #F9F9FB;
+            border-radius: 8px;
+            flex-wrap: wrap;
+        }
+
+        .match-quote {
+            flex: 1;
+            min-width: 200px;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        select {
+            flex: 1;
+            min-width: 200px;
+            padding: 0.75rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+        }
+
+        .match-feedback {
+            width: 100%;
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .match-feedback.correct {
+            background: #D1F4E0;
+            color: #0A5F2E;
+            display: block;
+        }
+
+        .match-feedback.incorrect {
+            background: #FFE5E5;
+            color: #B71C1C;
+            display: block;
+        }
+
+        .video-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: var(--shadow);
+            border: 2px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .video-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .video-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.15rem;
+        }
+
+        .video-card a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .video-card a:hover {
+            text-decoration: underline;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .timer-container {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .timer-display {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .timer-controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .timer-controls button {
+            background: white;
+            color: var(--primary-color);
+            min-width: 100px;
+        }
+
+        .timer-controls button:hover {
+            background: #f0f0f0;
+        }
+
+        .essay-planner {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid var(--primary-color);
+        }
+
+        .planner-section {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: #F9F9FB;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .planner-section h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .planner-section textarea {
+            min-height: 100px;
+        }
+
+        .quick-fire-container {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .quick-fire-question {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            min-height: 60px;
+        }
+
+        .answer-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .answer-input:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(88, 86, 214, 0.1);
+        }
+
+        .mnemonic-card {
+            background: linear-gradient(135deg, #FFF8E6, #FFEDCC);
+            border-left: 4px solid var(--warning-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .mnemonic-card .big-letter {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--warning-color);
+            margin-right: 0.5rem;
+        }
+
+        .context-box {
+            background: linear-gradient(135deg, #E9E8FF, #D9D7FF);
+            border-left: 4px solid var(--secondary-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin: 0.25rem;
+        }
+
+        .badge.theme {
+            background: var(--secondary-color);
+        }
+
+        .badge.character {
+            background: var(--success-color);
+        }
     </style>
 </head>
 <body>
@@ -498,6 +745,8 @@
         <button onclick="scrollToSection('home')">Home</button>
         <button onclick="scrollToSection('romeo')">Romeo & Juliet</button>
         <button onclick="scrollToSection('carol')">A Christmas Carol</button>
+        <button onclick="scrollToSection('activities')">Activities</button>
+        <button onclick="scrollToSection('resources')">Resources</button>
         <button onclick="scrollToSection('practice')">Practice & Quiz</button>
     </nav>
 
@@ -709,6 +958,280 @@
                     <button onclick="loadParagraph('carol')" class="secondary">Load Saved Paragraph</button>
                 </div>
                 <p class="practice-note">💾 Your work is saved only on this device.</p>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE ACTIVITIES SECTION -->
+        <section id="activities">
+            <h2>Interactive Activities</h2>
+
+            <!-- Quote Matching Activity -->
+            <div class="card">
+                <h3>📝 Quote to Theme Matching</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1rem;">
+                    Match each quote to its main theme. Select from the dropdown!
+                </p>
+
+                <div class="dropdown-match-container">
+                    <div class="match-item">
+                        <div class="match-quote">"O brawling love, O loving hate"</div>
+                        <select id="match1" onchange="checkMatch(1, 'Conflict and confusion')">
+                            <option value="">-- Select Theme --</option>
+                            <option value="Fate">Fate</option>
+                            <option value="Conflict and confusion">Conflict and confusion</option>
+                            <option value="Family feud">Family feud</option>
+                            <option value="Death">Death</option>
+                        </select>
+                        <div class="match-feedback" id="feedback1"></div>
+                    </div>
+
+                    <div class="match-item">
+                        <div class="match-quote">"I defy you, stars!"</div>
+                        <select id="match2" onchange="checkMatch(2, 'Fate')">
+                            <option value="">-- Select Theme --</option>
+                            <option value="Fate">Fate</option>
+                            <option value="Conflict and confusion">Conflict and confusion</option>
+                            <option value="Family feud">Family feud</option>
+                            <option value="Death">Death</option>
+                        </select>
+                        <div class="match-feedback" id="feedback2"></div>
+                    </div>
+
+                    <div class="match-item">
+                        <div class="match-quote">"A plague o' both your houses!"</div>
+                        <select id="match3" onchange="checkMatch(3, 'Family feud')">
+                            <option value="">-- Select Theme --</option>
+                            <option value="Fate">Fate</option>
+                            <option value="Conflict and confusion">Conflict and confusion</option>
+                            <option value="Family feud">Family feud</option>
+                            <option value="Death">Death</option>
+                        </select>
+                        <div class="match-feedback" id="feedback3"></div>
+                    </div>
+
+                    <div class="match-item">
+                        <div class="match-quote">"Solitary as an oyster"</div>
+                        <select id="match4" onchange="checkMatch(4, 'Isolation')">
+                            <option value="">-- Select Theme --</option>
+                            <option value="Isolation">Isolation</option>
+                            <option value="Poverty">Poverty</option>
+                            <option value="Transformation">Transformation</option>
+                            <option value="Greed">Greed</option>
+                        </select>
+                        <div class="match-feedback" id="feedback4"></div>
+                    </div>
+
+                    <div class="match-item">
+                        <div class="match-quote">"I will honour Christmas in my heart"</div>
+                        <select id="match5" onchange="checkMatch(5, 'Transformation')">
+                            <option value="">-- Select Theme --</option>
+                            <option value="Isolation">Isolation</option>
+                            <option value="Poverty">Poverty</option>
+                            <option value="Transformation">Transformation</option>
+                            <option value="Greed">Greed</option>
+                        </select>
+                        <div class="match-feedback" id="feedback5"></div>
+                    </div>
+                </div>
+
+                <button onclick="resetMatching()" class="secondary" style="margin-top: 1rem;">Reset All</button>
+            </div>
+
+            <!-- Character Analysis Dropdown -->
+            <div class="card">
+                <h3>👤 Character Analysis Explorer</h3>
+                <p style="margin-bottom: 1rem;">Select a character to see key analysis points:</p>
+                
+                <select id="character-select" onchange="showCharacterInfo()" style="width: 100%; margin-bottom: 1rem;">
+                    <option value="">-- Choose a Character --</option>
+                    <option value="romeo">Romeo</option>
+                    <option value="juliet">Juliet</option>
+                    <option value="mercutio">Mercutio</option>
+                    <option value="scrooge">Scrooge</option>
+                    <option value="tiny-tim">Tiny Tim</option>
+                    <option value="marley">Jacob Marley</option>
+                </select>
+
+                <div id="character-info" style="display: none;">
+                    <div class="info-box" id="character-content"></div>
+                </div>
+            </div>
+
+            <!-- Quick Fire Questions -->
+            <div class="card">
+                <h3>⚡ Quick-Fire Questions</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1rem;">
+                    Test your knowledge with quick recall questions!
+                </p>
+
+                <div class="quick-fire-container">
+                    <div class="quick-fire-question" id="qf-question">Click "New Question" to start!</div>
+                    <input type="text" class="answer-input" id="qf-answer" placeholder="Type your answer here...">
+                    <div class="button-group">
+                        <button onclick="newQuickFireQuestion()">New Question</button>
+                        <button onclick="revealQuickFireAnswer()" class="secondary">Reveal Answer</button>
+                    </div>
+                    <div id="qf-answer-display" style="display: none; margin-top: 1rem; padding: 1rem; background: #E5F3FF; border-radius: 8px; font-weight: 600;"></div>
+                </div>
+            </div>
+
+            <!-- Mnemonics Helper -->
+            <div class="card">
+                <h3>🧠 Memory Helpers (Mnemonics)</h3>
+                
+                <div class="mnemonic-card">
+                    <p><span class="big-letter">P</span><span class="big-letter">E</span><span class="big-letter">E</span><span class="big-letter">Z</span> = 
+                    <strong>P</strong>oint, <strong>E</strong>vidence, <strong>E</strong>xplain, <strong>Z</strong>oom</p>
+                </div>
+
+                <div class="mnemonic-card">
+                    <p><span class="big-letter">F</span><span class="big-letter">L</span><span class="big-letter">O</span><span class="big-letter">W</span> for essays:</p>
+                    <p><strong>F</strong>ocus on the question<br>
+                    <strong>L</strong>ink quotes to analysis<br>
+                    <strong>O</strong>rganize your paragraphs<br>
+                    <strong>W</strong>rap up with a strong conclusion</p>
+                </div>
+
+                <div class="mnemonic-card">
+                    <p><strong>Romeo & Juliet Themes:</strong> <span class="big-letter">F</span><span class="big-letter">L</span><span class="big-letter">O</span><span class="big-letter">W</span></p>
+                    <p><strong>F</strong>ate, <strong>L</strong>ove, <strong>O</strong>pposites (conflict), <strong>W</strong>rath (family feud)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESOURCES SECTION -->
+        <section id="resources">
+            <h2>📚 Revision Resources</h2>
+
+            <!-- Video Resources -->
+            <div class="card">
+                <h3>🎥 Helpful Videos</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1rem;">
+                    Watch these to deepen your understanding. Links open in new tabs.
+                </p>
+
+                <div class="resource-grid">
+                    <div class="video-card">
+                        <h4>Romeo & Juliet - Mr Bruff</h4>
+                        <p>Complete analysis of themes, characters, and key quotes.</p>
+                        <a href="https://www.youtube.com/watch?v=VDhO3XR7LwU" target="_blank" rel="noopener">
+                            Watch on YouTube →
+                        </a>
+                        <div style="margin-top: 0.5rem;">
+                            <span class="badge theme">Themes</span>
+                            <span class="badge character">Characters</span>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <h4>A Christmas Carol - Mr Bruff</h4>
+                        <p>Scrooge's transformation and Victorian context explained.</p>
+                        <a href="https://www.youtube.com/watch?v=LxqfY8pY3zc" target="_blank" rel="noopener">
+                            Watch on YouTube →
+                        </a>
+                        <div style="margin-top: 0.5rem;">
+                            <span class="badge theme">Context</span>
+                            <span class="badge">Analysis</span>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <h4>How to Write PEEZ Paragraphs</h4>
+                        <p>Step-by-step guide to structure your analysis.</p>
+                        <a href="https://www.youtube.com/results?search_query=how+to+write+PEEZ+paragraph+english+literature" target="_blank" rel="noopener">
+                            Search YouTube →
+                        </a>
+                        <div style="margin-top: 0.5rem;">
+                            <span class="badge">Technique</span>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <h4>AQA Exam Tips & Structure</h4>
+                        <p>What examiners look for in your answers.</p>
+                        <a href="https://www.youtube.com/results?search_query=aqa+english+literature+paper+1+exam+tips" target="_blank" rel="noopener">
+                            Search YouTube →
+                        </a>
+                        <div style="margin-top: 0.5rem;">
+                            <span class="badge">Exam Skills</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Context Information -->
+            <div class="card">
+                <h3>📖 Important Context</h3>
+
+                <div class="context-box">
+                    <h4 style="color: var(--secondary-color); margin-bottom: 0.5rem;">Romeo & Juliet - Elizabethan Era</h4>
+                    <p><strong>Written:</strong> 1594-1596</p>
+                    <p><strong>Key Context:</strong> Fate was hugely important in Shakespeare's time. People believed their lives were controlled by the stars. The family feud reflects real Italian vendetta culture.</p>
+                    <p><strong>Why it matters:</strong> Shows why audiences would see the tragedy as inevitable, not just bad luck.</p>
+                </div>
+
+                <div class="context-box">
+                    <h4 style="color: var(--secondary-color); margin-bottom: 0.5rem;">A Christmas Carol - Victorian England</h4>
+                    <p><strong>Written:</strong> 1843</p>
+                    <p><strong>Key Context:</strong> Huge gap between rich and poor. No welfare state - poor people went to workhouses (horrible places). Child labor was common.</p>
+                    <p><strong>Why it matters:</strong> Dickens wanted to shame wealthy people into helping the poor. The book was meant to create social change.</p>
+                </div>
+            </div>
+
+            <!-- Essay Planning Tool -->
+            <div class="card">
+                <h3>✍️ Essay Planner</h3>
+                <p style="margin-bottom: 1rem;">Plan your essay structure before writing!</p>
+
+                <div class="essay-planner">
+                    <div class="planner-section">
+                        <h4>Introduction</h4>
+                        <textarea id="plan-intro" placeholder="Main argument answering the question..."></textarea>
+                    </div>
+
+                    <div class="planner-section">
+                        <h4>Paragraph 1 - Point</h4>
+                        <textarea id="plan-p1" placeholder="First main point + quote to use..."></textarea>
+                    </div>
+
+                    <div class="planner-section">
+                        <h4>Paragraph 2 - Point</h4>
+                        <textarea id="plan-p2" placeholder="Second main point + quote to use..."></textarea>
+                    </div>
+
+                    <div class="planner-section">
+                        <h4>Paragraph 3 - Point</h4>
+                        <textarea id="plan-p3" placeholder="Third main point + quote to use..."></textarea>
+                    </div>
+
+                    <div class="planner-section">
+                        <h4>Conclusion</h4>
+                        <textarea id="plan-conclusion" placeholder="Sum up your argument..."></textarea>
+                    </div>
+
+                    <div class="button-group" style="margin-top: 1rem;">
+                        <button onclick="saveEssayPlan()" class="success">💾 Save Plan</button>
+                        <button onclick="loadEssayPlan()" class="secondary">📂 Load Plan</button>
+                        <button onclick="clearEssayPlan()" class="danger">🗑️ Clear Plan</button>
+                    </div>
+                    <p class="practice-note">💾 Your essay plan is saved only on this device.</p>
+                </div>
+            </div>
+
+            <!-- Study Timer -->
+            <div class="card">
+                <h3>⏱️ Revision Timer (Pomodoro)</h3>
+                <p style="margin-bottom: 1rem;">Use the Pomodoro technique: 25 minutes study, 5 minutes break!</p>
+
+                <div class="timer-container">
+                    <div class="timer-display" id="timer-display">25:00</div>
+                    <div class="timer-controls">
+                        <button onclick="startTimer()">▶️ Start</button>
+                        <button onclick="pauseTimer()">⏸️ Pause</button>
+                        <button onclick="resetTimer()">🔄 Reset</button>
+                    </div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem;" id="timer-status">Ready to study!</p>
+                </div>
             </div>
         </section>
 
@@ -1064,11 +1587,11 @@
                 check3: document.getElementById('check3').checked,
                 check4: document.getElementById('check4').checked
             };
-            localStorage.setItem('naomi-checklist', JSON.stringify(checklist));
+            localStorage.setItem('revision-checklist', JSON.stringify(checklist));
         }
 
         function loadChecklistState() {
-            const saved = localStorage.getItem('naomi-checklist');
+            const saved = localStorage.getItem('revision-checklist');
             if (saved) {
                 const checklist = JSON.parse(saved);
                 document.getElementById('check1').checked = checklist.check1 || false;
@@ -1080,6 +1603,247 @@
 
         // Load checklist state on page load
         window.addEventListener('DOMContentLoaded', loadChecklistState);
+
+        // ===== NEW INTERACTIVE ACTIVITIES =====
+
+        // Quote Matching Activity
+        function checkMatch(itemNum, correctAnswer) {
+            const select = document.getElementById(`match${itemNum}`);
+            const feedback = document.getElementById(`feedback${itemNum}`);
+            const selected = select.value;
+
+            if (selected === '') {
+                feedback.style.display = 'none';
+                return;
+            }
+
+            if (selected === correctAnswer) {
+                feedback.className = 'match-feedback correct';
+                feedback.textContent = '✅ Correct! Well done!';
+                select.style.borderColor = 'var(--success-color)';
+            } else {
+                feedback.className = 'match-feedback incorrect';
+                feedback.textContent = `❌ Not quite. The answer is: ${correctAnswer}`;
+                select.style.borderColor = 'var(--danger-color)';
+            }
+        }
+
+        function resetMatching() {
+            for (let i = 1; i <= 5; i++) {
+                const select = document.getElementById(`match${i}`);
+                const feedback = document.getElementById(`feedback${i}`);
+                select.value = '';
+                select.style.borderColor = 'var(--border-color)';
+                feedback.style.display = 'none';
+            }
+        }
+
+        // Character Analysis
+        const characterData = {
+            romeo: {
+                title: "Romeo - The Passionate Lover",
+                content: `<p><strong>Key Traits:</strong> Impulsive, emotional, idealistic, loyal</p>
+                         <p><strong>Key Quotes:</strong> "O brawling love, O loving hate" | "I defy you, stars!"</p>
+                         <p><strong>Analysis:</strong> Romeo represents young, intense love. His impulsiveness leads to tragedy. 
+                         He changes from lovesick over Rosaline to devoted to Juliet, showing his passionate nature.</p>
+                         <p><strong>Write about:</strong> How he challenges fate, his emotional language, his role in the tragedy.</p>`
+            },
+            juliet: {
+                title: "Juliet - The Determined Heroine",
+                content: `<p><strong>Key Traits:</strong> Brave, intelligent, mature beyond her years, determined</p>
+                         <p><strong>Key Quotes:</strong> "My only love sprung from my only hate" | "O happy dagger!"</p>
+                         <p><strong>Analysis:</strong> Juliet grows from obedient daughter to independent woman. She's smarter than Romeo, 
+                         often being more practical. Her final act shows her agency and desperation.</p>
+                         <p><strong>Write about:</strong> Her transformation, her defiance of family, her intelligence vs emotion.</p>`
+            },
+            mercutio: {
+                title: "Mercutio - The Loyal Friend",
+                content: `<p><strong>Key Traits:</strong> Witty, loyal, cynical about love, hot-tempered</p>
+                         <p><strong>Key Quotes:</strong> "A plague o' both your houses!"</p>
+                         <p><strong>Analysis:</strong> Mercutio is Romeo's foil - he mocks romantic love. His death is the turning point 
+                         of the play. His curse on both families highlights the senselessness of the feud.</p>
+                         <p><strong>Write about:</strong> His role as catalyst, his Queen Mab speech, the turning point of the tragedy.</p>`
+            },
+            scrooge: {
+                title: "Scrooge - From Miser to Philanthropist",
+                content: `<p><strong>Key Traits (Start):</strong> Greedy, cold, isolated, selfish</p>
+                         <p><strong>Key Traits (End):</strong> Generous, warm, connected, joyful</p>
+                         <p><strong>Key Quotes:</strong> "Solitary as an oyster" | "I will honour Christmas in my heart"</p>
+                         <p><strong>Analysis:</strong> Scrooge represents Victorian capitalism and social indifference. His transformation 
+                         shows Dickens' belief that anyone can change. The ghosts force him to confront his past, present, and future.</p>
+                         <p><strong>Write about:</strong> His transformation arc, what each ghost teaches him, symbolism of his change.</p>`
+            },
+            'tiny-tim': {
+                title: "Tiny Tim - Symbol of Innocence",
+                content: `<p><strong>Key Traits:</strong> Innocent, hopeful, kind, grateful despite suffering</p>
+                         <p><strong>Key Quotes:</strong> "Tiny Tim … hoped people saw him"</p>
+                         <p><strong>Analysis:</strong> Tim represents the innocent victims of poverty and social inequality. His potential 
+                         death motivates Scrooge's change. He embodies Christian values of hope and kindness.</p>
+                         <p><strong>Write about:</strong> His role in Scrooge's transformation, symbolism of his crutch, social commentary.</p>`
+            },
+            marley: {
+                title: "Jacob Marley - Warning from Beyond",
+                content: `<p><strong>Key Traits:</strong> Regretful, tormented, desperate to help Scrooge</p>
+                         <p><strong>Key Quote:</strong> "I wear the chain I forged in life"</p>
+                         <p><strong>Analysis:</strong> Marley shows the consequences of living selfishly. His chains symbolize the burden 
+                         of greed. He sets the whole redemption story in motion as Scrooge's warning.</p>
+                         <p><strong>Write about:</strong> Symbolism of his chains, his role as catalyst, supernatural elements.</p>`
+            }
+        };
+
+        function showCharacterInfo() {
+            const select = document.getElementById('character-select');
+            const infoDiv = document.getElementById('character-info');
+            const contentDiv = document.getElementById('character-content');
+            const selected = select.value;
+
+            if (selected === '') {
+                infoDiv.style.display = 'none';
+                return;
+            }
+
+            const data = characterData[selected];
+            contentDiv.innerHTML = `<h4 style="color: var(--primary-color); margin-bottom: 1rem;">${data.title}</h4>${data.content}`;
+            infoDiv.style.display = 'block';
+        }
+
+        // Quick Fire Questions
+        const quickFireQuestions = [
+            { q: "What technique is 'O brawling love, O loving hate'?", a: "Oxymoron - it puts opposites together to show Romeo's confusion" },
+            { q: "What does fate mean in Romeo and Juliet?", a: "The belief that events are predetermined and cannot be changed, often by the stars" },
+            { q: "Why did Dickens write A Christmas Carol?", a: "To criticize Victorian society's treatment of the poor and encourage social change" },
+            { q: "What does Scrooge's transformation symbolize?", a: "The potential for anyone to change and become better, redemption through self-reflection" },
+            { q: "Who says 'A plague o' both your houses' and why?", a: "Mercutio, as he's dying. He's blaming both families for the violence that killed him" },
+            { q: "What does the oyster metaphor suggest about Scrooge?", a: "He's closed off and hard on the outside, but has potential for a 'pearl' (goodness) inside" },
+            { q: "What is foreshadowing?", a: "Hints about what will happen later in the story" },
+            { q: "What was the role of the workhouse in Victorian times?", a: "A place where the very poor lived in terrible conditions in exchange for work" },
+            { q: "Why is Romeo and Juliet a tragedy?", a: "The main characters die due to fate, their own flaws, and circumstances beyond their control" },
+            { q: "What does Tiny Tim represent?", a: "The innocent victims of poverty and social inequality in Victorian England" },
+            { q: "What is a soliloquy?", a: "A speech where a character speaks their thoughts aloud, usually alone on stage" },
+            { q: "Why does Juliet say 'O happy dagger'?", a: "It's an oxymoron showing she sees death as a relief because Romeo is dead" }
+        ];
+
+        let currentQFQuestion = null;
+
+        function newQuickFireQuestion() {
+            const randomIndex = Math.floor(Math.random() * quickFireQuestions.length);
+            currentQFQuestion = quickFireQuestions[randomIndex];
+            
+            document.getElementById('qf-question').textContent = currentQFQuestion.q;
+            document.getElementById('qf-answer').value = '';
+            document.getElementById('qf-answer-display').style.display = 'none';
+        }
+
+        function revealQuickFireAnswer() {
+            if (!currentQFQuestion) {
+                alert('Click "New Question" first!');
+                return;
+            }
+            
+            const answerDiv = document.getElementById('qf-answer-display');
+            answerDiv.textContent = `Answer: ${currentQFQuestion.a}`;
+            answerDiv.style.display = 'block';
+        }
+
+        // Essay Planner
+        function saveEssayPlan() {
+            const plan = {
+                intro: document.getElementById('plan-intro').value,
+                p1: document.getElementById('plan-p1').value,
+                p2: document.getElementById('plan-p2').value,
+                p3: document.getElementById('plan-p3').value,
+                conclusion: document.getElementById('plan-conclusion').value
+            };
+            
+            localStorage.setItem('essay-plan', JSON.stringify(plan));
+            alert('✅ Essay plan saved!');
+        }
+
+        function loadEssayPlan() {
+            const saved = localStorage.getItem('essay-plan');
+            if (saved) {
+                const plan = JSON.parse(saved);
+                document.getElementById('plan-intro').value = plan.intro || '';
+                document.getElementById('plan-p1').value = plan.p1 || '';
+                document.getElementById('plan-p2').value = plan.p2 || '';
+                document.getElementById('plan-p3').value = plan.p3 || '';
+                document.getElementById('plan-conclusion').value = plan.conclusion || '';
+                alert('✅ Essay plan loaded!');
+            } else {
+                alert('⚠️ No saved plan found.');
+            }
+        }
+
+        function clearEssayPlan() {
+            if (confirm('Are you sure you want to clear your essay plan?')) {
+                document.getElementById('plan-intro').value = '';
+                document.getElementById('plan-p1').value = '';
+                document.getElementById('plan-p2').value = '';
+                document.getElementById('plan-p3').value = '';
+                document.getElementById('plan-conclusion').value = '';
+            }
+        }
+
+        // Pomodoro Timer
+        let timerInterval = null;
+        let timeRemaining = 25 * 60; // 25 minutes in seconds
+        let isRunning = false;
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeRemaining / 60);
+            const seconds = timeRemaining % 60;
+            document.getElementById('timer-display').textContent = 
+                `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+
+        function startTimer() {
+            if (isRunning) return;
+            
+            isRunning = true;
+            document.getElementById('timer-status').textContent = '📚 Focus time! Stay concentrated!';
+            
+            timerInterval = setInterval(() => {
+                if (timeRemaining > 0) {
+                    timeRemaining--;
+                    updateTimerDisplay();
+                } else {
+                    // Timer finished
+                    clearInterval(timerInterval);
+                    isRunning = false;
+                    document.getElementById('timer-status').textContent = '🎉 Well done! Take a 5-minute break!';
+                    
+                    // Play a simple alert
+                    if ('Notification' in window && Notification.permission === 'granted') {
+                        new Notification('Revision Timer', { body: 'Time for a break!' });
+                    } else {
+                        alert('⏰ Timer finished! Take a 5-minute break!');
+                    }
+                }
+            }, 1000);
+        }
+
+        function pauseTimer() {
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                isRunning = false;
+                document.getElementById('timer-status').textContent = '⏸️ Paused. Click Start to continue.';
+            }
+        }
+
+        function resetTimer() {
+            if (timerInterval) {
+                clearInterval(timerInterval);
+            }
+            isRunning = false;
+            timeRemaining = 25 * 60;
+            updateTimerDisplay();
+            document.getElementById('timer-status').textContent = 'Ready to study!';
+        }
+
+        // Request notification permission on load
+        if ('Notification' in window && Notification.permission === 'default') {
+            Notification.requestPermission();
+        }
     </script>
 </body>
 </html>
